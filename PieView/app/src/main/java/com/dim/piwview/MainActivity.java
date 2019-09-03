@@ -19,7 +19,7 @@ import com.dim.dimpieview.DimAnimationPercentPieView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int[] data;
+    long[] data;
     String[] name;
     int[] color;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        data = new int[]{20, 25, 40};
+        data = new long[]{20, 25, 40};
         name = new String[]{"联盟", "产业", "用户"};
         color = new int[]{
                 getResources().getColor(R.color.c_lianmeng),
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 animationPieView.setData(data, name, color, new DimAnimationPercentPieView.OnDImAnimalPercentPieViewListener() {
                     @Override
-                    public void onDrawPiePercent(int percent) {
+                    public void onDrawPiePercent(int percent, boolean finish) {
                         percentText.setText(percent + "%");
                         percentNumText.setText(String.format("%d(%d)", percent, 100));
                     }
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 animationPieView.clean();
                 percentText.setText("");
                 percentNumText.setText("");
-                data = new int[]{20, 25, 40};
+                data = new long[]{20, 25, 40};
                 name = new String[]{"联盟", "产业", "用户"};
                 color = new int[]{
                         getResources().getColor(R.color.c_lianmeng),
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 animationPieView.clean();
                 percentText.setText("");
                 percentNumText.setText("");
-                data = new int[]{20};
+                data = new long[]{20};
                 name = new String[]{"联盟"};
                 color = new int[]{
                         getResources().getColor(R.color.c_lianmeng)};
